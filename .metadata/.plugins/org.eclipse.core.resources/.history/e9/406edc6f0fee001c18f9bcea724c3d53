@@ -1,0 +1,42 @@
+package com.tushaar.mainassignment.service;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.tushaar.mainassignment.models.User;
+import com.tushaar.mainassignment.repository.UserRepository;
+
+@Service
+public class UserService {
+	
+	@Autowired
+	private UserRepository repository;
+
+	public ResponseEntity<?> createUser(User user) {
+		try {
+			User newUser = repository.save(user);
+			return new ResponseEntity<>(newUser, HttpStatus.CREATED);
+		}
+		catch (Exception e) {
+			return new ResponseEntity<>("An error occured", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	public ResponseEntity<?> findUserById(String id) {
+		try {
+			Optional<User> user = repository.findById(id);
+			if (user.isEmpty()) {
+				throw new Exception("User not found");
+			}
+			return new ResponseEntity<>(user, HttpStatus.CREATED);
+		}
+		catch (Exception e) {
+			return new ResponseEntity<>("An error occured", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+}

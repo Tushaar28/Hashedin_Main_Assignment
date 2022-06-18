@@ -1,0 +1,5 @@
+package com.tushaar.mainassignment.models;
+
+public class User {
+
+}

@@ -1,0 +1,7 @@
+package com.tushaar.mainassignment.dtos;
+
+public class CreateOrderDTO {
+	private long productId;
+	private double quantity;
+	private double price;
+}

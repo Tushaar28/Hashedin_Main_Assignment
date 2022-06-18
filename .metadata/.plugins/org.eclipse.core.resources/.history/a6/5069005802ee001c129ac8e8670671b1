@@ -1,0 +1,6 @@
+package com.tushaar.mainassignment.models;
+import javax.persistence.*;
+
+public class User {
+
+}

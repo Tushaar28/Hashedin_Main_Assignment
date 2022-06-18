@@ -1,0 +1,5 @@
+package com.tushaar.mainassignment.dtos;
+
+public class CreateOrderDTO {
+
+}
