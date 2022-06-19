@@ -26,13 +26,18 @@ public class InventoryController {
 		return service.createInventory(inventory);
 	}
 	
+	@GetMapping
+	public ResponseEntity<?> getAllInventory() {
+		return service.getAllInventory();
+	}
+	
 	@GetMapping("/{id}")
-	public ResponseEntity<?> getInventoryById(@PathVariable long id) {
+	public ResponseEntity<?> getInventoryById(@PathVariable Long id) {
 		return service.getInventoryById(id);
 	} 
 	
 	@PatchMapping("/{id}")
-	public ResponseEntity<?> updateInventoryById(@PathVariable long id, @RequestBody UpdateInventoryDTO inventoryChanges) {
+	public ResponseEntity<?> updateInventoryById(@PathVariable Long id, @RequestBody UpdateInventoryDTO inventoryChanges) {
 		return service.updateInventoryById(id, inventoryChanges);
 	}
 }

@@ -1,6 +1,6 @@
 package com.tushaar.mainassignment.dtos;
 
-import com.tushaar.mainassignment.enums.OrderStatus;
+import com.tushaar.mainassignment.enums.PaymentStatus;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,6 +13,6 @@ public class CreateOrderDTO {
 	private long productId;
 	private double quantity;
 	private double price;
-	private OrderStatus status;
 	private long userId;
+	private PaymentStatus payment;
 }

@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 public class Payment {
 
 	@Id
-	private long orderId;
+	private Long orderId;
 
 	@Column(nullable = false)
 	private PaymentStatus status;

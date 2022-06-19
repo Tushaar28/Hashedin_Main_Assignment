@@ -7,6 +7,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.tushaar.mainassignment.dtos.CreatePaymentDTO;
+import com.tushaar.mainassignment.enums.PaymentStatus;
+import com.tushaar.mainassignment.exceptions.InvalidOrderIdException;
+import com.tushaar.mainassignment.exceptions.InvalidPaymentStatusException;
+import com.tushaar.mainassignment.exceptions.PaymentRecordAlreadyExistsException;
+import com.tushaar.mainassignment.exceptions.PaymentRecordNotFoundException;
 import com.tushaar.mainassignment.models.Payment;
 import com.tushaar.mainassignment.repository.PaymentRepository;
 
@@ -20,7 +26,7 @@ public class PaymentService {
 		try {
 			Optional<Payment> payment = repository.findById(id);
 			if (payment.isEmpty()) {
-				return new ResponseEntity<>("No payment for Order ID " + id + " found", HttpStatus.BAD_REQUEST);
+				throw new PaymentRecordNotFoundException();
 			}
 			return new ResponseEntity<>(payment.get(), HttpStatus.OK);
 		} catch (Exception e) {
@@ -28,4 +34,36 @@ public class PaymentService {
 		}
 	}
 
+	public ResponseEntity<?> createPayment(CreatePaymentDTO payment) {
+			if (payment.getOrderId() == null) {
+				throw new InvalidOrderIdException();
+			}
+			Optional<Payment> p = repository.findById(payment.getOrderId());
+			if (!p.isEmpty()) {
+				throw new PaymentRecordAlreadyExistsException();
+			}
+			Payment newPayment = new Payment();
+			newPayment.setOrderId(payment.getOrderId());
+			if (payment.getStatus() != null) {
+				newPayment.setStatus(payment.getStatus());
+			} else {
+				newPayment.setStatus(PaymentStatus.PENDING);
+			}
+			newPayment = repository.save(newPayment);
+			return new ResponseEntity<>(newPayment, HttpStatus.OK);
+	}
+
+	public ResponseEntity<?> updatePaymentById(Long id, PaymentStatus status) {
+		Optional<Payment> payment = repository.findById(id);
+		if (payment.isEmpty()) {
+			throw new PaymentRecordNotFoundException();
+		}
+		Payment oldPayment = payment.get();
+		if (status == null) {
+			throw new InvalidPaymentStatusException();
+		}
+		oldPayment.setStatus(status);
+		oldPayment = repository.save(oldPayment);
+		return new ResponseEntity<>(oldPayment, HttpStatus.OK);
+	}
 }

@@ -24,7 +24,7 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private Long id;
 
 	@Column
 	private String name;
@@ -38,4 +38,11 @@ public class User {
 	@Column()
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date createdAt = new Date();
+	
+	public User(String name, String address, String mobile, Date date) {
+		this.name = name;
+		this.address = address;
+		this.mobile = mobile;
+		createdAt = date;
+	}
 }
