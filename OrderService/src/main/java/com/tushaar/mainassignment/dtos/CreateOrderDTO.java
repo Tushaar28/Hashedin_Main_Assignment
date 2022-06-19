@@ -14,4 +14,5 @@ public class CreateOrderDTO {
 	private double quantity;
 	private double price;
 	private OrderStatus status;
+	private long userId;
 }

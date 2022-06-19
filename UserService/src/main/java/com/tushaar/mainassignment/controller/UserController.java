@@ -16,7 +16,7 @@ import com.tushaar.mainassignment.models.User;
 import com.tushaar.mainassignment.service.UserService;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
 	
 	@Autowired
@@ -28,17 +28,22 @@ public class UserController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<?> findUserById(@PathVariable String id) {
+	public ResponseEntity<?> findUserById(@PathVariable long id) {
 		return service.findUserById(id);
 	}
 	
 	@PatchMapping("/{id}")
-	public ResponseEntity<?> updateUserById(@PathVariable String id, @RequestBody UserUpdateDTO userChanges) {
+	public ResponseEntity<?> updateUserById(@PathVariable long id, @RequestBody UserUpdateDTO userChanges) {
 		return service.updateUserById(id, userChanges);
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<?> deleteUserById(@PathVariable String id) {
+	public ResponseEntity<?> deleteUserById(@PathVariable long id) {
 		return service.deleteUserById(id);
+	}
+	
+	@GetMapping("/{id}/orders")
+	public ResponseEntity<?> getAllOrdersByUserId(@PathVariable long id) {
+		return service.getAllOrdersByUserId(id);
 	}
 }

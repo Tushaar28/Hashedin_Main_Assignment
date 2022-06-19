@@ -33,5 +33,4 @@ public class OrderController {
 	public ResponseEntity<?> getAllOrdersForUser(@PathVariable Long id) {
 		return service.getAllOrdersForUser(id);
 	}
-
 }

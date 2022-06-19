@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.tushaar.mainassignment.dtos.CreateOrderDTO;
+import com.tushaar.mainassignment.enums.OrderStatus;
 import com.tushaar.mainassignment.models.Order;
 import com.tushaar.mainassignment.repository.OrderRepository;
 
@@ -24,6 +25,13 @@ public class OrderService {
 			o.setPrice(order.getPrice());
 			o.setProductId(order.getProductId());
 			o.setQuantity(order.getQuantity());
+			o.setUserId(order.getUserId());
+			if (order.getStatus() != null) {
+				o.setStatus(order.getStatus());
+			}
+			else {
+				o.setStatus(OrderStatus.ACCEPTED);
+			}
 			Order savedOrder = repository.save(o);
 			return new ResponseEntity<>(savedOrder, HttpStatus.CREATED);
 		}
