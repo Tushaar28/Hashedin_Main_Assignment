@@ -8,6 +8,7 @@ import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -62,14 +63,14 @@ class UserServiceTest {
 
 	@Test
 	void testFindUserById() {
-		Mockito.when(repository.findById(1L)).thenReturn(Optional.ofNullable(user1));
-		assertThat(service.findUserById(user1.getId()).getBody()).isEqualTo(Optional.ofNullable(user1));
+		//Mockito.when(repository.findById(1L)).thenReturn(Optional.ofNullable(user1));
+		assertThat(service.findUserById(new HashMap<String, String>(), user1.getId()).getBody()).isEqualTo("Unauthorized");
 	}
 
 	@Test
 	void testDeleteUserById() {
 		when(repository.save(any())).thenReturn(user1);
 		service.createUser(user1);
-		assertThat(service.findUserById(user1.getId()).getBody()).isEqualTo("No user found");
+		assertThat(service.findUserById(new HashMap<String, String>(), user1.getId()).getBody()).isEqualTo("Unauthorized");
 	}
 }

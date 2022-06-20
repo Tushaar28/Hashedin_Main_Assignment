@@ -1,7 +1,0 @@
-package com.tushaar.mainassignment.controller;
-
-@RestController
-@RequestMapping("/user")
-public class UserController {
-
-}

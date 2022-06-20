@@ -11,7 +11,6 @@ import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 public class GatewayController {
 	
 	@GetMapping("/user")
-	@CircuitBreaker(name = "userService", fallbackMethod = "userServiceFallbackMessage")
 	public String userServiceFallbackMessage() {
 		return "There is some error in connecting to User Service. Please try again later";
 	}
@@ -29,6 +28,11 @@ public class GatewayController {
 	@GetMapping("/payment")
 	public String paymentServiceFallbackMessage() {
 		return "There is some error in connecting to Payment Service. Please try again later";
+	}
+	
+	@GetMapping("/inventory")
+	public String inventoryServiceFallbackMessage() {
+		return "There is some error in connecting to Inventory Service. Please try again later";
 	}
 
 }

@@ -49,6 +49,15 @@ spring:
           args:
             name: paymentCircuitBreaker
             fallbackUri: forward:/fallback/payment
+      - id: inventoryService
+        uri: lb://INVENTORY-SERVICE
+        predicates:
+        - Path=/products/**
+        filters:
+        - name: CircuitBreaker
+          args:
+            name: inventoryCircuitBreaker
+            fallbackUri: forward:/fallback/inventory
 
 #Actuator
 

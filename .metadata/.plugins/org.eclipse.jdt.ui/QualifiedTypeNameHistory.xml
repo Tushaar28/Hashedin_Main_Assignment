@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="com.tushaar.mainassignment.dtos.ProductDTO"/>
-    <fullyQualifiedTypeName name="javax.persistence.ElementCollection"/>
-    <fullyQualifiedTypeName name="com.tushaar.mainassignment.exceptions.ProductNotFoundException"/>
-    <fullyQualifiedTypeName name="com.tushaar.mainassignment.exceptions.InvalidPriceException"/>
     <fullyQualifiedTypeName name="org.springframework.cloud.client.discovery.EnableDiscoveryClient"/>
     <fullyQualifiedTypeName name="org.springframework.cloud.openfeign.EnableFeignClients"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ExceptionHandler"/>
     <fullyQualifiedTypeName name="com.tushaar.mainassignment.exceptions.InvalidQuantityException"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
-    <fullyQualifiedTypeName name="com.tushaar.mainassignment.feign.InventoryAPI"/>
     <fullyQualifiedTypeName name="com.tushaar.mainassignment.dtos.UpdateInventoryDTO"/>
     <fullyQualifiedTypeName name="org.junit.jupiter.api.BeforeEach"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestControllerAdvice"/>
@@ -34,7 +27,6 @@
     <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="java.util.function.Function"/>
     <fullyQualifiedTypeName name="io.jsonwebtoken.Jwts"/>
-    <fullyQualifiedTypeName name="java.util.Map"/>
     <fullyQualifiedTypeName name="io.jsonwebtoken.SignatureAlgorithm"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
     <fullyQualifiedTypeName name="com.tushaar.mainassignment.dtos.AuthenticationRequest"/>
@@ -52,12 +44,20 @@
     <fullyQualifiedTypeName name="org.apache.http.impl.bootstrap.HttpServer"/>
     <fullyQualifiedTypeName name="com.tushaar.mainassignment.utils.JwtUtil"/>
     <fullyQualifiedTypeName name="org.springframework.web.filter.OncePerRequestFilter"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="com.tushaar.mainassignment.dtos.CartResponseDTO"/>
-    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
-    <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
     <fullyQualifiedTypeName name="com.tushaar.mainassignment.dtos.OrderResponse"/>
     <fullyQualifiedTypeName name="com.tushaar.mainassignment.dtos.CreateOrderDTO"/>
     <fullyQualifiedTypeName name="com.tushaar.mainassignment.enums.PaymentStatus"/>
     <fullyQualifiedTypeName name="javax.transaction.Transactional"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.kafka.KafkaProperties.Producer"/>
+    <fullyQualifiedTypeName name="com.tushaar.mainassignment.feign.InventoryAPI"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
+    <fullyQualifiedTypeName name="java.util.Comparator"/>
+    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
+    <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
+    <fullyQualifiedTypeName name="com.tushaar.mainassignment.dtos.CartResponseDTO"/>
+    <fullyQualifiedTypeName name="com.tushaar.mainassignment.dtos.CartRequestDTO"/>
 </qualifiedTypeNameHistroy>

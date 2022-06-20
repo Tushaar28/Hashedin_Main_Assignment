@@ -68,4 +68,13 @@ public class OrderService {
 			return new ResponseEntity<>("An error occured", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+
+	public ResponseEntity<?> getAllOrders() {
+		try {
+			List<Order> orders = repository.findAll();
+			return new ResponseEntity<>(orders, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>("An error occured", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 }

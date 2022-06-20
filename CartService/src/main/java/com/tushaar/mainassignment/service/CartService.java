@@ -47,7 +47,7 @@ public class CartService {
 		}
 		oldItems.setQuantity(cart.getQuantity());
 		oldItems = repository.save(oldItems);
-		UpdateInventoryDTO inventoryChanges = new UpdateInventoryDTO(oldItems.getQuantity());
+		UpdateInventoryDTO inventoryChanges = new UpdateInventoryDTO(inventory.getQuantity() - oldItems.getQuantity());
 		inventoryAPI.updateInventory(productId, inventoryChanges);
 		return new ResponseEntity<>(oldItems, HttpStatus.OK);
 	}

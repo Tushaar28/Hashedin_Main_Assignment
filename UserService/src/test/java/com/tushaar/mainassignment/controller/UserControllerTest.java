@@ -10,8 +10,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
+import org.hibernate.mapping.Map;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -72,21 +74,6 @@ class UserControllerTest {
 		mockMvc.perform(post("/users/signup").contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
 				.andExpect(status().isCreated());
 		verify(service, times(1)).createUser(any());
-	}
-
-	@Test
-	void testFindUserById() throws Exception {
-		when(service.findUserById(createdUser.getId()))
-				.thenReturn(new ResponseEntity<Object>("No user found", HttpStatus.BAD_REQUEST));
-		mockMvc.perform(get("/users/" + createdUser.getId()).contentType(MediaType.APPLICATION_JSON)
-				.content(asJsonString(user))).andExpect(status().isBadRequest());
-	}
-
-	@Test
-	void testFindUserByIdWhenIdDoesNotExist() throws Exception {
-		when(service.findUserById(0L)).thenReturn(new ResponseEntity<Object>(createdUser, HttpStatus.OK));
-		mockMvc.perform(get("/users/" + 0L).contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
-				.andExpect(status().isOk());
 	}
 
 	@Test

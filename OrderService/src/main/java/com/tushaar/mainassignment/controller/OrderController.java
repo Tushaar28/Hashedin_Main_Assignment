@@ -19,6 +19,11 @@ public class OrderController {
 	@Autowired
 	private OrderService service;
 	
+	@GetMapping
+	public ResponseEntity<?> getAllOrders() {
+		return service.getAllOrders();
+	}
+	
 	@PostMapping
 	public ResponseEntity<?> createOrder(@RequestBody CreateOrderDTO order) {
 		return service.createOrder(order);
