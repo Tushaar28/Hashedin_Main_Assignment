@@ -56,8 +56,8 @@ class UserControllerTest {
 
 	@BeforeEach
 	public void setup() {
-		user = new User("Tushaar", "Punjab", "8968980024", new Date());
-		createdUser = new User(1L, user.getName(), user.getAddress(), user.getMobile(), user.getCreatedAt());
+		user = new User("Tushaar", "Punjab", "8968980024", new Date(), "123");
+		createdUser = new User(1L, user.getName(), user.getAddress(), user.getMobile(), user.getCreatedAt(), user.getPassword());
 		mockMvc = MockMvcBuilders.standaloneSetup(userController).build();
 	}
 
@@ -69,7 +69,7 @@ class UserControllerTest {
 	@Test
 	void testCreateUser() throws Exception {
 		when(service.createUser(any())).thenReturn(new ResponseEntity<Object>(createdUser, HttpStatus.CREATED));
-		mockMvc.perform(post("/users/").contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
+		mockMvc.perform(post("/users/signup").contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
 				.andExpect(status().isCreated());
 		verify(service, times(1)).createUser(any());
 	}

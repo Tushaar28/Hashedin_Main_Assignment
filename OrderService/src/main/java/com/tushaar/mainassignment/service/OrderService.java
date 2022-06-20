@@ -31,7 +31,6 @@ public class OrderService {
 	@Transactional
 	public ResponseEntity<?> createOrder(CreateOrderDTO order) {
 			Order o = new Order();
-			o.setPrice(order.getPrice());
 			o.setProductId(order.getProductId());
 			o.setQuantity(order.getQuantity());
 			o.setUserId(order.getUserId());
@@ -47,7 +46,7 @@ public class OrderService {
 			}
 			savedOrder = repository.save(savedOrder);
 			return new ResponseEntity<>(savedOrder, HttpStatus.CREATED);
-		} 
+		}
 
 	public ResponseEntity<?> getOrderById(Long id) {
 		try {

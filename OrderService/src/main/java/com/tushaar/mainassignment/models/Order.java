@@ -42,8 +42,5 @@ public class Order {
 	private double quantity;
 	
 	@Column(nullable = false)
-	private double price;
-	
-	@Column(nullable = false)
 	private OrderStatus status;
 }

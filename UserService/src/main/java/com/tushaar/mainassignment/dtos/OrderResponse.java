@@ -14,13 +14,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class OrderResponse {
 
-	private long id;
-	private long userId;
+	private Long id;
+	private Long userId;
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date createdAt;
 	private long productId;
 	private double quantity;
-	private double price;
 	private OrderStatus status;
-
 }

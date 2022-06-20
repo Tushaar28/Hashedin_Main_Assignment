@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -39,10 +40,14 @@ public class User {
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date createdAt = new Date();
 	
-	public User(String name, String address, String mobile, Date date) {
+	@Column(nullable = false, unique = true)
+	private String password;
+	
+	public User(String name, String address, String mobile, Date date, String password) {
 		this.name = name;
 		this.address = address;
 		this.mobile = mobile;
 		createdAt = date;
+		this.password = password;
 	}
 }

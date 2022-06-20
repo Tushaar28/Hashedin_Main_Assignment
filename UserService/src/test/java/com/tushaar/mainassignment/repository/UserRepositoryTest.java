@@ -26,7 +26,7 @@ class UserRepositoryTest {
 
 	@BeforeEach
 	public void setUp() {
-		user = new User("Tushaar", "Punjab", "8968980024", new Date());
+		user = new User("Tushaar", "Punjab", "8968980024", new Date(), "123");
 	}
 
 	@AfterEach
@@ -48,7 +48,7 @@ class UserRepositoryTest {
 	
 	@Test
 	public void findByAddress() {
-		User u2 = new User("Dummy", "Punjab", "9876543210", new Date());
+		User u2 = new User("Dummy", "Punjab", "9876543210", new Date(), "1234");
 		repository.save(user);
 		repository.save(u2);
 		List<User> usersList = repository.findByAddress(user.getAddress());

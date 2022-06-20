@@ -41,8 +41,8 @@ class UserServiceTest {
 	@BeforeEach
 	public void setUp() {
 		userList = new ArrayList<>();
-		user1 = new User(1L, "Tushaar", "Punjab", "8968980024", new Date());
-		user2 = new User(2L, "Dummy", "Punjab", "9876543210", new Date());
+		user1 = new User(1L, "Tushaar", "Punjab", "8968980024", new Date(), "123");
+		user2 = new User(2L, "Dummy", "Punjab", "9876543210", new Date(), "1234");
 		userList.add(user1);
 		userList.add(user2);
 	}
